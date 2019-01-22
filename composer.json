@@ -10,7 +10,8 @@
         "nullref/yii2-core": "dev-develop",
         "nullref/yii2-useful": "dev-master",
         "unclead/yii2-multiple-input": "~2.0",
-        "yiisoft/yii2": ">=2.0.13"
+        "yiisoft/yii2": ">=2.0.13",
+        "wbraganca/yii2-dynamicform": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-gii": "*"

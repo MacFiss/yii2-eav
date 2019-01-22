@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\recipe\widgets;
+namespace nullref\eav\widgets;
 
 use yii\base\Widget;
 
@@ -15,7 +15,7 @@ class GroupAttributes extends Widget
     public $form;
 
     /** @var Array */
-    public $defaultFields = [];
+    public $fields = [];
 
     /** @var String */
     public $template = 'group_attributes';
@@ -44,12 +44,18 @@ class GroupAttributes extends Widget
     {
         $fields = [];
 
-        foreach ($model->eav->getAttributesConfig() as $attribute => $config) {
+        $data = array_merge(
+            $this->fields,
+            $model->eav->getAttributesConfig()
+        );
+
+        foreach ($data as $attribute => $config) {
             $widget = new \nullref\eav\widgets\Attribute([
                 'config' => $config,
                 'field' => $this->form->field($model, "[{$groupId}]{$attribute}"),
             ]);
-            $fields[] = $widget->run();
+
+            $fields[$attribute] = $widget->run();
         }
 
         return $fields;

@@ -1,0 +1,11 @@
+.group-attributes > .attribute {
+    display: flex;
+}
+
+.group-attributes > .attribute > .row {
+    flex-grow: 1;
+}
+
+.group-attributes > .attribute > .buttons {
+    padding-left: 10px;
+}
